@@ -37,3 +37,14 @@ Feature: Calculator Power Operation
     Given I have a calculator
     When I try to calculate 2 to the power of -1
     Then it should throw an IllegalArgumentException with message "Exponent must be non-negative"
+
+  Scenario: Overflow case
+    Given I have a calculator
+    When I try to calculate 2 to the power of 63
+    Then it should throw an ArithmeticException with message "Integer overflow"
+
+
+  Scenario: Any number to the power of non number
+    Given I have a calculator
+    When I calculate "2" to the power of "abc"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"

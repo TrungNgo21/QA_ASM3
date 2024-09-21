@@ -57,3 +57,8 @@ Feature: Calculator Fibonacci Operation
     Given I have a calculator
     When I try to calculate the Fibonacci number at position -1
     Then it should throw an IllegalArgumentException with message "Input must be non-negative"
+
+  Scenario: Calculate Fibonacci for non number
+    Given I have a calculator
+    When I calculate the Fibonacci number at position "abc"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"

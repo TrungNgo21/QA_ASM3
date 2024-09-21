@@ -3,6 +3,11 @@ Feature: Calculator Addition
   I want to add two numbers
   So that I can get their sum
 
+  Scenario: Add two non numbers
+    Given I have a calculator
+    When I add "abc" and "abc"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"
+
   Scenario: Add two positive numbers
     Given I have a calculator
     When I add 5 and 7

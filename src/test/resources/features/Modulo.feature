@@ -32,3 +32,8 @@ Feature: Calculator Modulo
     Given I have a calculator
     When I try to calculate 10 modulo 0
     Then it should throw an ArithmeticException with message "Modulo by zero is not allowed"
+
+  Scenario: Modulo with non negative numbers
+    Given I have a calculator
+    When I calculate "abc" modulo "5"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"

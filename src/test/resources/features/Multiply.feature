@@ -22,3 +22,8 @@ Feature: Calculator Multiplication
     Given I have a calculator
     When I multiply 8 and 0
     Then the result should be 0
+
+  Scenario: Multiply two non numbers
+    Given I have a calculator
+    When I multiply "abc" and "5"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"

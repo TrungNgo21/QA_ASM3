@@ -31,7 +31,7 @@ Feature: Calculator LCM Operation
   Scenario: LCM of two large prime numbers
     Given I have a calculator
     When I calculate the LCM of 104729 and 104723
-    Then the result should be 10971332167
+    Then the result should be 10967535067
 
   Scenario: LCM of two equal numbers
     Given I have a calculator
@@ -42,3 +42,8 @@ Feature: Calculator LCM Operation
     Given I have a calculator
     When I calculate the LCM of 25 and 36
     Then the result should be 900
+
+  Scenario: LCM of two non numbers
+    Given I have a calculator
+    When I calculate the LCM of "abc" and "100"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"

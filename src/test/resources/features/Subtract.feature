@@ -3,6 +3,7 @@ Feature: Calculator Subtraction
   I want to subtract one number from another
   So that I can get their difference
 
+
   Scenario: Subtract a smaller positive number from a larger positive number
     Given I have a calculator
     When I subtract 3 from 8
@@ -22,3 +23,8 @@ Feature: Calculator Subtraction
     Given I have a calculator
     When I subtract 5 from -3
     Then the result should be -8
+
+  Scenario: Subtract two non numbers
+    Given I have a calculator
+    When I add "abc" and "abc"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"

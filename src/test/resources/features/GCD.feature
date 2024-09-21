@@ -37,3 +37,13 @@ Feature: Calculator GCD Operation
     Given I have a calculator
     When I calculate the GCD of 100 and 100
     Then the result should be 100
+
+  Scenario: GCD of two equal numbers
+    Given I have a calculator
+    When I calculate the GCD of 100 and 100
+    Then the result should be 100
+
+  Scenario: GCD of two non numbers
+    Given I have a calculator
+    When I calculate the GCD of "abc" and "100"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"

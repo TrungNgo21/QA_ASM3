@@ -27,3 +27,8 @@ Feature: Calculator Division
     Given I have a calculator
     When I try to divide 10 by 0
     Then it should throw an ArithmeticException with message "Division by zero is not allowed"
+
+  Scenario: Divide two non numbers
+    Given I have a calculator
+    When I divide "abc" by "2"
+    Then it should throw an NumberFormatException with message "Cannot calculate string value!"
