@@ -4,9 +4,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/Fibonacci.feature",
         glue = "StepDefinitions",
         plugin = {"pretty", "html:target/cucumber-reports"}
 )
-public class RunCucumberTest {
+public class RunFibonacciTest {
 }
