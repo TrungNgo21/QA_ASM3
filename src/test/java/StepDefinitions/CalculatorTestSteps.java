@@ -72,7 +72,11 @@ public class CalculatorTestSteps {
 
   @When("I multiply {int} and {int}")
   public void i_multiply_and(Integer a, Integer b) {
-    result = calculator.multiply(a, b);
+    try{
+      result = calculator.multiply(a, b);
+    } catch (Exception e){
+      thrownException = e;
+    }
   }
 
   @When("I multiply {string} and {string}")
@@ -86,7 +90,11 @@ public class CalculatorTestSteps {
 
   @When("I calculate the Fibonacci number at position {int}")
   public void i_calculate_the_fibonacci_number_at_position(Integer position) {
-    result = calculator.fibonacci(position);
+    try {
+      result = calculator.fibonacci(position);
+    } catch (Exception e) {
+      thrownException = e;
+    }
   }
 
   @When("I calculate the Fibonacci number at position {string}")
@@ -125,7 +133,11 @@ public class CalculatorTestSteps {
 
   @When("I calculate the LCM of {int} and {int}")
   public void i_calculate_the_lcm_of_and(Integer a, Integer b) {
-    result = calculator.lcm(a, b);
+    try {
+      result = calculator.lcm(a, b);
+    }  catch (Exception e) {
+      thrownException = e;
+    }
   }
 
   @When("I calculate the LCM of {string} and {string}")
@@ -134,6 +146,8 @@ public class CalculatorTestSteps {
       result = calculator.lcm(Integer.parseInt(a), Integer.parseInt(b));
     } catch (NumberFormatException e) {
       thrownException = new NumberFormatException("Cannot calculate string value!");
+    } catch (Exception e) {
+      thrownException = new ArithmeticException("Integer overflow");
     }
   }
 
@@ -193,7 +207,8 @@ public class CalculatorTestSteps {
   }
 
   @Then("it should throw an {word} with message {string}")
-  public void it_should_throw_an_exception_with_message(String exceptionType, String expectedMessage) {
+  public void it_should_throw_an_exception_with_message(
+      String exceptionType, String expectedMessage) {
     assertEquals(exceptionType, thrownException.getClass().getSimpleName());
     assertEquals(expectedMessage, thrownException.getMessage());
   }

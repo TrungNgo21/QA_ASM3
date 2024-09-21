@@ -19,7 +19,7 @@ public class Calculator {
         }
     }
 
-    public String multiply(int a, int b) throws ArithmeticException {
+    public String multiply(int a, int b){
         if (a == 0 || b == 0) {
             return "0";
         }
@@ -75,7 +75,7 @@ public class Calculator {
         }
         long result = 1;
         for (int i = 0; i < exponent; i++) {
-            if (result > Long.MAX_VALUE / Math.abs((long)base)) {
+            if (result > Long.MAX_VALUE / abs(base)) {
                 throw new ArithmeticException("Integer overflow");
             }
             result *= base;
@@ -101,12 +101,11 @@ public class Calculator {
         }
 
         long absA = abs(a);
-        long absB = abs( b);
-
+        long absB = abs(b);
         // Calculate GCD first
         long gcdValue = Long.parseLong(gcd(a, b));
         // Check for potential overflow before division and multiplication
-        if (absA > Long.MAX_VALUE / (absB / gcdValue)) {
+        if (absA > Integer.MAX_VALUE / (absB / gcdValue)) {
             throw new ArithmeticException("Integer overflow");
         }
         long lcm = (absA / gcdValue) * absB;
@@ -124,7 +123,7 @@ public class Calculator {
 
         long a = 0, b = 1;
         for (int i = 2; i <= n; i++) {
-            if (b > Long.MAX_VALUE - a) {
+            if (b > Integer.MAX_VALUE - a) {
                 throw new ArithmeticException("Integer overflow");
             }
             long temp = a + b;

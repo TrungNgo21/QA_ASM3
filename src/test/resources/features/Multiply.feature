@@ -27,3 +27,8 @@ Feature: Calculator Multiplication
     Given I have a calculator
     When I multiply "abc" and "5"
     Then it should throw an NumberFormatException with message "Cannot calculate string value!"
+
+  Scenario: Multiply overflow
+    Given I have a calculator
+    When I multiply 10000000 and 10000000
+    Then it should throw an ArithmeticException with message "Integer overflow"

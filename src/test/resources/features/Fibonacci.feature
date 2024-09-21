@@ -62,3 +62,8 @@ Feature: Calculator Fibonacci Operation
     Given I have a calculator
     When I calculate the Fibonacci number at position "abc"
     Then it should throw an NumberFormatException with message "Cannot calculate string value!"
+
+  Scenario: Overflow Fibonacci
+    Given I have a calculator
+    When I calculate the Fibonacci number at position 48
+    Then it should throw an ArithmeticException with message "Integer overflow"

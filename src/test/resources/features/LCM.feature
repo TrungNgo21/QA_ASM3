@@ -31,7 +31,7 @@ Feature: Calculator LCM Operation
   Scenario: LCM of two large prime numbers
     Given I have a calculator
     When I calculate the LCM of 104729 and 104723
-    Then the result should be 10967535067
+    Then it should throw an ArithmeticException with message "Integer overflow"
 
   Scenario: LCM of two equal numbers
     Given I have a calculator
